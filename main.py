@@ -37,4 +37,13 @@ label_1.place(x=80, y=130)
 entry_1 = Entry(root, textvar=full_name)
 entry_1.place(x=240, y=130)
 
+label_2 = Label(root, text="Email",width=20,font=("bold", 10))
+label_2.place(x=68,y=180)
+ 
+entry_2 = Entry(root,textvar=Email)
+entry_2.place(x=240,y=180)
+ 
+label_3 = Label(root, text="Gender",width=20,font=("bold", 10))
+label_3.place(x=70,y=230)
+
 root.mainloop()
