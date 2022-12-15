@@ -10,6 +10,7 @@ Email = StringVar()
 var = IntVar()
 c = StringVar()
 var1 = IntVar()
+var2 = IntVar()
 
 
 def database():
@@ -23,7 +24,7 @@ def database():
         cursor = con.cursor()
         cursor.execute(
             'CREATE TABLE IF NOT EXISTS Student (full_name TEXT, email TEXT, gender TEXT, country TEXT, drink text )')
-        cursor.execute('INSERT INTO Student (full_name, email,gender, country, drink ) VALUES(?,?,?,?,?)',
+        cursor.execute('INSERT INTO Student (full_name, email, gender, country, drink ) VALUES(?,?,?,?,?)',
                        (name, email, gender, country, drink,))
         con.commit()
 
@@ -61,9 +62,8 @@ droplist.config(width=15)
 c.set('select your country')
 droplist.place(x=240, y=280)
 
-label_4 = Label(root, text="Drink", width=20, font=("bold", 10))
-label_4.place(x=85, y=330)
-var2 = IntVar()
+label_5 = Label(root, text="Drink", width=20, font=("bold", 10))
+label_5.place(x=85, y=330)
 Checkbutton(root, text="Coffee", variable=var1).place(x=290, y=330)
 Checkbutton(root, text="Tea", variable=var2).place(x=235, y=330)
 
