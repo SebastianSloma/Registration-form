@@ -3,39 +3,40 @@ import sqlite3
 
 root = Tk()
 root.geometry('600x500')
-root.title('Registration')
+root.title("Registration")
 
-full_name = StringVar()
+
+Fullname = StringVar()
 Email = StringVar()
 var = IntVar()
 c = StringVar()
 var1 = IntVar()
-var2 = IntVar()
 
 
 def database():
-    name = full_name.get()
+    name1 = Fullname.get()
     email = Email.get()
     gender = var.get()
     country = c.get()
     drink = var1.get()
-
-    with sqlite3.connect('formdb.db') as db:
-        cursor = db.cursor()
-        cursor.execute('CREATE TABLE IF NOT EXISTS User (full_name TEXT NOT NULL, email TEXT NOT NULL, gender TEXT NOT NULL, country TEXT NOT NULL, drink text NOT NULL')
-        cursor.execute('INSERT INTO User (full_name, email, gender, country, drink ) VALUES(?,?,?,?,?)',
-                       (name, email, gender, country, drink,))
-        db.commit()
-
+    conn = sqlite3.connect('Formdb.db')
+    with conn:
+        cursor = conn.cursor()
+    cursor.execute(
+        'CREATE TABLE IF NOT EXISTS User (Fullname TEXT,Email TEXT,Gender TEXT,Country TEXT,Drink TEXT)')
+    cursor.execute('INSERT INTO User (FullName,Email,Gender,Country,Drink) VALUES(?,?,?,?,?)',
+                   (name1, email, gender, country, drink,))
+    conn.commit()
 
 
 label_0 = Label(root, text="Registration", width=20, font=("bold", 20))
 label_0.place(x=90, y=53)
 
-label_1 = Label(root, text="Full Name", width=20, font=("bold", 10))
+
+label_1 = Label(root, text="FullName", width=20, font=("bold", 10))
 label_1.place(x=80, y=130)
 
-entry_1 = Entry(root, textvar=full_name)
+entry_1 = Entry(root, textvar=Fullname)
 entry_1.place(x=240, y=130)
 
 label_2 = Label(root, text="Email", width=20, font=("bold", 10))
@@ -52,19 +53,21 @@ Radiobutton(root, text="Male", padx=5, variable=var,
 Radiobutton(root, text="Female", padx=20,
             variable=var, value=2).place(x=290, y=230)
 
-label_4 = Label(root, text="Country", width=20, font=("bold", 10))
+label_4 = Label(root, text="country", width=20, font=("bold", 10))
 label_4.place(x=70, y=280)
 
-list1 = ['Poland', 'Espania', 'England', 'Germany', 'France', 'Italy']
+list1 = ['Poland', 'Espaniol', 'Portugal', 'Germany', 'France', 'Italy']
 
 droplist = OptionMenu(root, c, *list1)
 droplist.config(width=15)
 c.set('select your country')
 droplist.place(x=240, y=280)
 
-label_5 = Label(root, text="Drink", width=20, font=("bold", 10))
-label_5.place(x=85, y=330)
+label_4 = Label(root, text="Drink", width=20, font=("bold", 10))
+label_4.place(x=85, y=330)
+var2 = IntVar()
 Checkbutton(root, text="Coffee", variable=var1).place(x=290, y=330)
+
 Checkbutton(root, text="Tea", variable=var2).place(x=235, y=330)
 
 Button(root, text='Submit', width=20, bg='grey',
