@@ -4,7 +4,20 @@ root = Tk()
 root.geometry('600x500')
 root.title('Registration')
 
-full_name=StringVar()
+full_name = StringVar()
+Email = StringVar()
+var = IntVar()
+c = StringVar()
+var1 = IntVar()
+
+
+def database():
+    name = full_name.get()
+    email = Email.get()
+    gender = var.get()
+    country = c.get()
+    drink = var1.get()
+
 
 label_0 = Label(root, text="Registration", width=20, font=("bold", 20))
 label_0.place(x=90, y=53)
