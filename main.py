@@ -46,4 +46,12 @@ entry_2.place(x=240,y=180)
 label_3 = Label(root, text="Gender",width=20,font=("bold", 10))
 label_3.place(x=70,y=230)
 
+Radiobutton(root, text="Male",padx = 5, variable=var, value=1).place(x=235,y=230)
+Radiobutton(root, text="Female",padx = 20, variable=var, value=2).place(x=290,y=230)
+
+label_4 = Label(root, text="country",width=20,font=("bold", 10))
+label_4.place(x=70,y=280)
+
+list1 = ['Poland','Espania','England','Germany','France','Italy'];
+
 root.mainloop()
