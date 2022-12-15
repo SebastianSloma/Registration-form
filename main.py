@@ -19,14 +19,14 @@ def database():
     gender = var.get()
     country = c.get()
     drink = var1.get()
-    con = sqlite3.connect('form.db')
-    with con:
-        cursor = con.cursor()
-        cursor.execute(
-            'CREATE TABLE IF NOT EXISTS Student (full_name TEXT, email TEXT, gender TEXT, country TEXT, drink text )')
-        cursor.execute('INSERT INTO Student (full_name, email, gender, country, drink ) VALUES(?,?,?,?,?)',
+
+    with sqlite3.connect('formdb.db') as db:
+        cursor = db.cursor()
+        cursor.execute('CREATE TABLE IF NOT EXISTS User (full_name TEXT NOT NULL, email TEXT NOT NULL, gender TEXT NOT NULL, country TEXT NOT NULL, drink text NOT NULL')
+        cursor.execute('INSERT INTO User (full_name, email, gender, country, drink ) VALUES(?,?,?,?,?)',
                        (name, email, gender, country, drink,))
-        con.commit()
+        db.commit()
+
 
 
 label_0 = Label(root, text="Registration", width=20, font=("bold", 20))
