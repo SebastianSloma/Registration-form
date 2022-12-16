@@ -1,6 +1,8 @@
+# import library tkinter and sqlite3 database
 from tkinter import *
 import sqlite3
 
+# Create window object
 root = Tk()
 root.geometry('600x500')
 root.title("Registration")
@@ -11,6 +13,8 @@ Email = StringVar()
 var = IntVar()
 c = StringVar()
 var1 = IntVar()
+
+# create database and add record
 
 
 def database():
@@ -29,6 +33,7 @@ def database():
     conn.commit()
 
 
+# definition of labelas ans buttons
 label_0 = Label(root, text="Registration", width=20, font=("bold", 20))
 label_0.place(x=90, y=53)
 
